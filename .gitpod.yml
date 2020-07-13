@@ -1,0 +1,9 @@
+image: workspace-mongodb
+
+tasks:
+  - init: yarn install
+    command: yarn build
+
+ports:
+  - port: 3000
+    onOpen: open-preview
