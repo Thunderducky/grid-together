@@ -2,7 +2,7 @@ image: gitpod/workspace-mongodb
 
 tasks:
   - init: yarn install
-    command: yarn run build
+    command: yarn run dev
   - init: cd client && yarn install
     command: yarn run react:dev-cloud
   
