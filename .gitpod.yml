@@ -7,7 +7,10 @@ tasks:
       rm /tmp/.npm-lock
     command: yarn run dev
   - init: sleep 1 && while [ -f /tmp/.npm-lock ]; do sleep 1; done
-    command: yarn run react:dev-cloud
+    command: |
+      # This part is needed for the cloud environment
+      echo "DANGEROUSLY_DISABLE_HOST_CHECK=true" >> ./client/.env.development.local
+      yarn run react:dev
   - command: mkdir -p /workspace/data && mongod --dbpath /workspace/data
   
 ports:
