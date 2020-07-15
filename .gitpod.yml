@@ -1,10 +1,14 @@
 image: gitpod/workspace-mongodb
 
 tasks:
-  - init: yarn install
+  - init: |
+      touch /tmp/.npm-lock
+      yarn install
+      rm /tmp/.npm-lock
     command: yarn run dev
-  - init: cd client && yarn install
+  - init: sleep 1 && while [ -f /tmp/.npm-lock ]; do sleep 1; done
     command: yarn run react:dev-cloud
+  - command: mkdir -p /workspace/data && mongod --dbpath /workspace/data
   
 ports:
   - port: 3000
