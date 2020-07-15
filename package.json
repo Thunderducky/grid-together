@@ -2,6 +2,7 @@
   "name": "grid-together",
   "version": "1.0.0",
   "scripts": {
+    "install": "cd client && yarn install",
     "start:dev": "nodemon server/dist/index.js",
     "build:dev": "tsc --watch --preserveWatchOutput",
     "react:dev": "if-env DEV_ENV=cloud && npm run react:dev-cloud || npm run react:dev-local",
