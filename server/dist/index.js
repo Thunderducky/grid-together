@@ -12,6 +12,7 @@ app.use(express_1.default.json());
 const publicPath = path_1.default.join(__dirname, "../../public");
 console.log(publicPath);
 app.use(express_1.default.static(publicPath));
+app.get("/api/test", (req, res) => res.json({ test: "this is a test" }));
 const server = app.listen(constants_1.PORT, () => {
     console.log(`Server is listening on port ${constants_1.PORT}`);
 });
