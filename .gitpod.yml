@@ -2,8 +2,9 @@ image: gitpod/workspace-mongodb
 
 tasks:
   - init: yarn install
-    command: yarn build
-  - command: yarn run react:dev-cloud
+    command: yarn run build
+  - init: cd client && yarn install
+    command: yarn run react:dev-cloud
   
 ports:
   - port: 3000

@@ -5,7 +5,7 @@
     "start:dev": "nodemon server/dist/index.js",
     "build:dev": "tsc --watch --preserveWatchOutput",
     "react:dev": "if-env DEV_ENV=cloud && npm run react:dev-cloud || npm run react:dev-local",
-    "react:dev-cloud": "cd client && env DANGEROUSLY_DISABLE_HOST_CHECK=true yarn start",
+    "react:dev-cloud": "cd client && (env DANGEROUSLY_DISABLE_HOST_CHECK=true && yarn start)",
     "react:dev-local": "cd client && yarn start",
     "dev": "concurrently \"npm:build:dev\" \"npm:start:dev\" \"npm:react:dev\""
   },
