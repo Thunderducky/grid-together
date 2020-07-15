@@ -10,5 +10,19 @@
 </head>
 <body>
     <h1>Grid It Together!</h1>
+    <div id="messageFromServer">
+
+    </div>
+    <script type="text/javascript">
+        const webSocketConnect = () => {
+            const ws = new WebSocket((window.location.protocol  === 'https:' ? 'wss://' : 'ws://') + window.location.host);
+            ws.onopen = () => ws.send('test hello!');
+            ws.onmessage = message => {
+                console.log("message received: " + message.data);
+                document.getElementById("messageFromServer").innerHTML = message.data;
+            }
+        };
+        webSocketConnect();
+    </script>
 </body>
 </html>

@@ -6,8 +6,9 @@ import { PORT } from './config/constants';
 
 const app = express();
 app.use(express.json());
-
-app.use(express.static(path.join(__dirname, "../public")));
+const publicPath = path.join(__dirname, "../../public");
+console.log(publicPath);
+app.use(express.static(publicPath));
 
 const server = app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
